@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	#div1 {width: 100px; height: 100px;  background: red; position: absolute;}
+</style>
+</head>
+<body>
+	<div id="div1"></div>
+<script>
+window.onload=function(){  
+	var oDiv = document.getElementById("div1");  
+	var direction = {	//左上右下
+		left:false,
+		top:false,
+		right:false,
+		bottom:false
+	};   
+	var timer = null;  
+
+	timer = setInterval(function(){  
+		if(direction.left){  
+			oDiv.style.left = oDiv.offsetLeft - 10 + 'px';  
+		}  
+		else if(direction.top){  
+			oDiv.style.top = oDiv.offsetTop - 10 + 'px';  
+		}  
+		else if(direction.right){  
+			oDiv.style.left = oDiv.offsetLeft + 10 + 'px';  
+		}  
+		else if(direction.bottom){  
+			oDiv.style.top = oDiv.offsetTop + 10 + 'px';  
+		}  
+	},50);  
+
+	document.onkeydown=function(ev){  
+		var ev = ev|| window.event;  
+
+		switch(ev.keyCode){  
+			case 37:  
+				direction.left = true;  
+			break;  
+			case 38:  
+				direction.top = true;  
+			break;  
+			case 39:  
+				direction.right = true;  
+			break;  
+			case 40:  
+				direction.bottom = true;  
+			break;  
+		}  
+	}  
+	document.onkeyup=function(){  
+		direction = {
+			left:false,
+			top:false,
+			right:false,
+			bottom:false
+		};  
+	}  
+} 
+</script>
+</body>
+</html>
