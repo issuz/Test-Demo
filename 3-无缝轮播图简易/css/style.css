@@ -1,0 +1,41 @@
+*{ margin: 0;padding: 0;}
+.clear { clear: both;}
+.clearfix { *zoom: 1;} 
+.clearfix:before, .clearfix:after { display: table; line-height: 0; content: "";}
+.clearfix:after { clear: both;}
+
+.tab{
+	height: 100%;
+	width: 100%;
+	margin: 200px;
+}
+.box{
+	position: relative;
+	height: 154px;
+	width: 1020px;
+	background-color: #ed75e8;
+	overflow: hidden;
+	float: left;
+}
+.leftBtn,.rightBtn{
+	width: 40px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	margin-top: 44px;
+	float: left;
+	background-color: #3a97d1;
+	cursor: pointer;
+}
+.box ul{
+	position: absolute;
+}
+.box ul li{
+	float: left;
+	list-style: none;
+}
+.box ul li img{
+	width: 200px;
+	height: 150px;
+	margin: 2px;
+}
