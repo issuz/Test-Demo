@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟滚动条</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		.box{
+			position: relative;
+			margin: 200px auto;
+			width: 500px;
+			height: 500px;
+			background-color: rgba(0,0,0,0.2);
+		}
+		.scrollBox{
+			position: absolute;
+			right: -30px;
+			top: 0;
+			width: 30px;
+			height: 500px;
+			background-color: burlywood;
+		}
+		.scrollBtn{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 30px;
+			height: 30px;
+			background-color: #45d8d2;
+		}
+		.textBox{
+			width: 500px;
+			height: 500px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+		}
+		.text{
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="scrollBox">
+			<div class="scrollBtn"></div>
+		</div>
+		<div class="textBox">
+			<p class="text">测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</p>
+		</div>
+	</div>
+
+<script>
+	window.onload = function(){
+		var box = document.querySelector('.box');
+		var scrollBox = box.querySelector('.scrollBox');
+		var scrollBtn = box.querySelector('.scrollBtn');
+		var textBox = box.querySelector('.textBox');
+		var text = box.querySelector('.text');
+		
+		var maxTop = scrollBox.offsetHeight - scrollBtn.offsetHeight;
+		
+		scrollBtn.onmousedown = function(ev){
+			var ev = ev || window.event;
+			
+			var disY = ev.clientY - this.offsetTop;
+			
+			document.onmousemove = function(ev){
+				var ev = ev || window.event;
+				
+				var T = ev.clientY - disY;
+				
+				if(T < 0){
+					T = 0;
+				}else if(T > maxTop){
+					T = maxTop;
+				}
+				scrollBtn.style.top = T+'px';
+				
+				var scale = T / maxTop;
+				
+				text.style.top = (textBox.clientHeight - text.offsetHeight) * scale + 'px';
+			}
+			
+			document.onmouseup = function(){
+				document.onmousemove = document.onmouseup = null;
+			}
+			return false;
+		}
+		
+		
+	}
+</script>
+</body>
+</html>
