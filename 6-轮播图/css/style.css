@@ -1,0 +1,83 @@
+*{ margin: 0;padding: 0;}
+.clear { clear: both;}
+.clearfix { *zoom: 1;} 
+.clearfix:before, .clearfix:after { display: table; line-height: 0; content: "";}
+.clearfix:after { clear: both;}
+
+body{
+	background: #f5f5f5;
+}
+#container {
+	width: 600px;
+	height: 337px;
+	border-radius: 3px;
+	box-shadow: 0 0 10px #ccc;
+	overflow: hidden;
+	position: relative;
+	margin:40px auto;
+}
+#list {
+	width: 4200px;
+	height: 337px;
+	position: absolute;
+	left: -600px;
+	z-index: 1;
+}
+#list img {
+	width: 600px;
+	height: 337px;
+	float: left;
+}
+#buttons {
+	position: absolute;
+	height: 15px;
+	width: 100px;
+	z-index: 2;
+	bottom: 20px;
+	left: 250px;
+	
+}
+#buttons span {
+	cursor: pointer;
+	float: left;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background: rgba(255,255,255,0.7);
+	margin-right: 5px;
+}
+#buttons span.on {
+	background: #ef94ef;
+}
+.arrow {
+	cursor: pointer;
+	display: none;
+	line-height: 39px;
+	text-align: center;
+	font-size: 36px;
+	font-weight: bold;
+	width: 40px;
+	height: 40px;
+	border-radius: 3px;
+	position: absolute;
+	z-index: 2;
+	top: 148px;
+	background-color: rgba(0, 0, 0, 0.3);
+	color: #fff;
+	text-decoration: none;
+}
+#prev {
+	left: 20px;
+}
+#next {
+	right: 20px;
+}
+.arrow:hover {
+	transition: 1s;
+	background-color: rgba(0, 0, 0, 0.7);
+	color: #1e90ff;
+
+}
+#container:hover .arrow {
+	display: block;
+}
