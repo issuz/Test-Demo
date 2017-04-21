@@ -1,0 +1,16 @@
+
+#go-top{
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+    width: 0px;
+    height: 0px;
+    border-left: 25px solid rgba(0,0,255,0.3);
+    border-bottom: 25px solid rgba(0,0,0,0);
+    transform: rotate(45deg);
+    cursor: pointer;
+    display: none;
+}
+#go-top.scroll{
+    display: inline-block;
+}
